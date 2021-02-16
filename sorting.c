@@ -11,7 +11,18 @@ void bubleSort(int ar[],int n){
             if(ar[j]>ar[j+1])
                 swap(&ar[j],&ar[j+1]);
 }
-
+void insertionSort(int ar[],int n){
+    int i,j,current;
+    for(i=0;i<n;i++){
+        current=ar[i];
+        j=i-1;
+        while(j>=0&&ar[j]>current){
+            ar[j+1]=ar[j];
+            j--;
+        }
+        ar[j+1]=current;
+    }
+}
 void arrayPrint(int ar[],int n){
     int i;
     for(i=0;i<n;i++)
@@ -20,7 +31,11 @@ void arrayPrint(int ar[],int n){
 }
 void main(){
     int array1[]={10,5,8,1,55,4,36,33};
+    int array2[]={20,5,45,1,2,55,6,78,12};
     printf("Sorted Array 1 is ");
     bubleSort(array1,sizeof(array1)/sizeof(int));
     arrayPrint(array1,sizeof(array1)/sizeof(int));
+    printf("Sorted Array 2 is ");
+    insertionSort(array2,sizeof(array2)/sizeof(int));
+    arrayPrint(array2,sizeof(array2)/sizeof(int));
 }
